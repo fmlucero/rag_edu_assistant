@@ -43,6 +43,6 @@ Traté de mantenerlo lo más Open Source y local posible conectando el ecosistem
 ## Notas / A tener en cuenta 🤔
 - **Memoria RAM/VRAM**: Aunque esté en 4-bit, un modelo de 8B requiere algo de músculo (unos ~6GB de VRAM mínimo). Si te tira errores de Out-of-Memory (OOM), fíjate en `llm_engine.py` que dejé flaggeado `llm_int8_enable_fp32_cpu_offload=True`.
 - Si **no tenés HF Token** a mano o simplemente no lográs que autorice a bajar LLaMA, podés testear todo el sistema comentando el modelo de Meta en `config.py` y descomentando un modelo abierto más chico (como `Qwen/Qwen2.5-0.5B-Instruct`).
-- Este PoC levanta FAISS de cero cada vez que corrés el `main.py`. Si vas a pasar esto a producción, lo ideal sería guardar el índice en disco (en `/vector_db`) o migrar a algo como ChromaDB o Milvus para no andar generando los embeddings todos los días.
+- **Persistencia Vectorial implementada**: A diferencia de otras PoCs básicas, este proyecto ya tiene la funcionalidad de guardar la base vectorial de FAISS localmente (en la carpeta `/vector_db`). La primera vez que lo corras procesará los textos haciendo los *embeddings*, y las siguientes ejecuciones levantará el índice cachéado del disco de forma casi instantánea.
 
 ¡Ojalá sirva de buena base! Pull requests y mejoras (como enchufarle Streamlit/Gradio) son más que bienvenidos. ✌️
