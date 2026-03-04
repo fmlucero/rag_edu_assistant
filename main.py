@@ -1,6 +1,6 @@
 import sys
 from rag_pipeline.document_processor import load_and_chunk_documents
-from rag_pipeline.vector_store import create_vector_store, get_retriever
+from rag_pipeline.vector_store import init_vector_store, get_retriever
 from rag_pipeline.llm_engine import initialize_llm
 from rag_pipeline.prompt_templates import get_rag_prompt
 from langchain_core.runnables import RunnablePassthrough
@@ -43,8 +43,8 @@ def main():
         print("[!] Por favor añade documentos .txt en la carpeta 'data' y vuelve a intentar.")
         sys.exit(1)
 
-    # 3. Creación Index Vectorial y Embeddings
-    vector_store = create_vector_store(chunks)
+    # 3. Creación o Carga de Index Vectorial persistido
+    vector_store = init_vector_store(chunks)
     retriever = get_retriever(vector_store, k=2)
 
     # 4. Carga y Cuantización del LLM local de Hugging Face

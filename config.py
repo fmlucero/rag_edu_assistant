@@ -1,8 +1,8 @@
 import os
 
 # Configuraciones del Modelo LLM
-# MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
-MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct" # Modelo ungated usado para pruebas locales
+MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
+# MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct" # Modelo ungated usado para pruebas locales
 HF_TOKEN = os.getenv("HF_TOKEN") # Asegúrate de configurar la variable de entorno HF_TOKEN
 
 # Configuraciones de Embeddings
