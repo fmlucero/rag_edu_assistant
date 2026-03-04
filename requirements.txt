@@ -1,0 +1,11 @@
+torch
+transformers
+huggingface-hub
+accelerate
+bitsandbytes
+langchain
+langchain-community
+langchain-huggingface
+sentence-transformers
+faiss-cpu
+python-dotenv

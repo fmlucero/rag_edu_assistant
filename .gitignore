@@ -1,0 +1,19 @@
+# Entornos virtuales
+venv/
+env/
+.env
+
+# PychoCaché y compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Datos generados por la app y bases de datos locales
+vector_db/
+# data/ # Descomentar si no querés subir los reportes de prueba
+
+# Herramientas y SO
+.vscode/
+.idea/
+.DS_Store
+*.log
